@@ -1,0 +1,26 @@
+<div id="todo-list"></div>
+<form id="add-todo-form">
+  <input type="text" id="todo-text" placeholder="Enter a todo item">
+  <button type="submit">Add</button>
+</form>
+
+//ADD JAVASCRIPT IN SEPARATE JS FILE
+function addTodo(event) {
+  // prevent the form from being submitted
+  event.preventDefault();
+
+  // get the value of the text input field
+  const todoText = document.getElementById('todo-text').value;
+
+  // create a new li element
+  const todoItem = document.createElement('li');
+  todoItem.textContent = todoText;
+
+  // append the li element to the ul element
+  document.getElementById('todo-list').appendChild(todoItem);
+
+  // clear the text input field
+  document.getElementById('todo-text').value = '';
+}
+const form = document.getElementById('add-todo-form');
+form.addEventListener('submit', addTodo);
